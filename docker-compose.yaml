@@ -1,11 +1,11 @@
 services:
-  system-info:
+  web:
     image: zerekis/system-info:latest
     container_name: system-info
     ports:
       - "10000:10000"
 
-    watchtower:
+  watchtower:
     image: nickfedor/watchtower:latest
     environment:
       - WATCHTOWER_POLL_INTERVAL=60
