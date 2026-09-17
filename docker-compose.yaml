@@ -1,0 +1,17 @@
+services:
+  system-info:
+    image: zerekis/system-info:latest
+    container_name: system-info
+    ports:
+      - "10000:10000"
+
+    watchtower:
+    image: nickfedor/watchtower:latest
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=60
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: system-info
+    container_name: watchtower
+    network_mode: host
+
